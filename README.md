@@ -28,3 +28,8 @@ Multiple recordings are able to be layered and listened to at once, instantly tr
 The sound can be paused by again turning the toggle to the off position; playback will resume from the paused position if the toggle is re-engaged. All the sounds can also be completely silenced and reset by interacting with the "button" in the top left of the interface.  
 A master Volume slider is contained on the instruction screen. 
 
+To get the file onto your device (phone or tablet, IOS or Android) please follow the instructions here:
+http://danieliglesia.com/mobmuplat/doc/index.htm
+only the first section and "Loading it onto your Device" are relevant.
+if you have and Iphone and Mac airdrop can also be used to transfer the files onto your device. 
+
