@@ -1,0 +1,45 @@
+#N canvas 468 138 699 400 12;
+#X obj 97 133 metro;
+#X msg 97 97 tempo 1 sec;
+#X obj 97 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 97 185 float;
+#X obj 157 185 + 1;
+#X floatatom 97 212 5 0 0 0 - - -;
+#X obj 97 238 * 44100;
+#X obj 41 97 delay 1;
+#X obj 41 36 inlet;
+#X text 39 15 start;
+#X obj 124 36 inlet;
+#X obj 41 64 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 124 64 stop;
+#X msg 234 64 0;
+#X obj 234 36 inlet;
+#X text 124 15 stop;
+#X obj 97 267 outlet;
+#X text 232 15 reset;
+#X text 355 27 Sample counter for calculating offset for playback.
+Basically functions as a pause command. When SampleCounter recieves
+a "start" input \, metro is started which counts in 1 second increments
+these are multiplied by 44100 \, which calculates the number of elapsed
+samples for 44.1 kHz sampling frequency. The 1 second resolution is
+enough for this purpose This information is sent out to Songbird. SampleCounter
+also contains stop and reset inputs which can be used through Songbird
+to trigger the according functions.;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 1;
+#X connect 5 0 6 0;
+#X connect 6 0 16 0;
+#X connect 7 0 0 0;
+#X connect 8 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 7 0;
+#X connect 11 0 1 0;
+#X connect 12 0 0 0;
+#X connect 13 0 3 0;
+#X connect 14 0 13 0;

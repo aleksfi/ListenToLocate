@@ -1,0 +1,76 @@
+#N canvas 744 114 611 640 12;
+#X obj 214 58 inlet;
+#X obj 275 58 inlet;
+#X obj 81 59 inlet;
+#X obj 81 269 readsf~ 2;
+#X obj 51 417 *~ 0.7;
+#X obj 111 417 *~ 0.7;
+#X floatatom 232 417 20 0 0 0 - - -;
+#X obj 420 333 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 216 209 start;
+#X msg 276 209 stop;
+#X msg 342 234 0;
+#X floatatom 420 417 20 0 0 0 - - -;
+#X obj 420 356 delay 1;
+#X obj 357 57 inlet;
+#X obj 420 457 outlet;
+#X obj 111 457 outlet~;
+#X obj 51 457 outlet~;
+#X obj 232 382 SampleCounter;
+#X text 357 36 loadbang for File Load;
+#X text 275 37 stop;
+#X text 214 37 start;
+#X text 29 38 file load with offset;
+#X msg 397 209 stop;
+#X text 624 38 Songbird circuit for controlling playback. Songbird
+uses readsf~ for file playback. Files are loaded from hard disc inside
+the main pd patch. Songbird uses SampleCounter to track playback position.
+This information is sent out to the main patch. Inputs: - file load
+with offset: input for file load message from hard disc. This message
+also contains a sample offset calculated by SampleCounter so playback
+can restart at the previously left position. - start starts playback
+of loaded file - stop stops playback \, stops SampleCounter and prompts
+it to output the sample offset for the next playback - loadback for
+File load loads a file at startup and resets the counter. In case it
+was used for the clear command it also stops playback When the file
+playback comes to an end the file is reloaded from hard disc at sample
+offse 0 SampleCounter is reset and playback resumes.;
+#X obj 460 80 r \$0-loop;
+#X obj 141 382 s \$0-loop;
+#X obj 182 304 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 232 457 s \$1-sampleOffset;
+#X obj 420 382 value \$1-sampleOffset;
+#X obj 493 166 print EMLOOP;
+#X obj 389 114 delay 2;
+#X connect 0 0 8 0;
+#X connect 1 0 7 0;
+#X connect 1 0 9 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 3 2 25 0;
+#X connect 3 2 26 0;
+#X connect 4 0 16 0;
+#X connect 5 0 15 0;
+#X connect 6 0 27 0;
+#X connect 7 0 12 0;
+#X connect 8 0 3 0;
+#X connect 8 0 17 0;
+#X connect 9 0 3 0;
+#X connect 9 0 17 1;
+#X connect 10 0 17 2;
+#X connect 11 0 14 0;
+#X connect 12 0 28 0;
+#X connect 13 0 10 0;
+#X connect 13 0 22 0;
+#X connect 13 0 9 0;
+#X connect 17 0 6 0;
+#X connect 22 0 17 1;
+#X connect 24 0 10 0;
+#X connect 24 0 29 0;
+#X connect 24 0 30 0;
+#X connect 24 0 7 0;
+#X connect 28 0 11 0;
+#X connect 30 0 8 0;
